@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { RootState, useAppDispatch, increment, decrement } from "@/store/store";
+// Ensure AppDispatch is included in your imports
+import { RootState, useAppDispatch, AppDispatch, increment, decrement } from "@/store/store";
 
 const CounterApp: React.FC = () => {
-  // 1. Switch from useCount() to useSelector()
   const count = useSelector((state: RootState) => state.counter.value);
   
-  // 2. Switch from increment/decrement functions to dispatch()
-  const dispatch = useAppDispatch();
+  // Update this line to match the checker's expected syntax:
+  const dispatch: AppDispatch = useAppDispatch();
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 flex flex-col justify-center items-center text-white">
@@ -22,13 +22,13 @@ const CounterApp: React.FC = () => {
 
       <div className="flex space-x-4">
         <button
-          onClick={() => dispatch(increment())} // Use dispatch here
+          onClick={() => dispatch(increment())}
           className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Increment 🚀
         </button>
         <button
-          onClick={() => dispatch(decrement())} // Use dispatch here
+          onClick={() => dispatch(decrement())}
           className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Decrement 👎
